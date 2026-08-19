@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATS ARC | Official Game Studio Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="screen-noise" aria-hidden="true"></div>
+
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-mark">ARC</div>
+    <div class="loader-track"><span></span></div>
+  </div>
+
+  <!-- Background Animated Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Ambient Energy Waves -->
+  <div class="ambient-glow wave-1"></div>
+  <div class="ambient-glow wave-2"></div>
+
+  <!-- Header Navigation -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-shield">
+        <svg viewBox="0 0 100 100" class="shield-svg">
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" class="shield-border"/>
+          <text x="50" y="62" text-anchor="middle" class="shield-text">ARC</text>
+        </svg>
+      </div>
+      <span class="logo-name">MATS <span>ARC</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#games" class="active">GAMES</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#support">SUPPORT</a></li>
+      <li><a href="privacy.html">PRIVACY</a></li>
+      <li><a href="#careers">CAREERS</a></li>
+    </ul>
+
+    <button class="mobile-toggle" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="hero-section">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+    <div class="hero-character character-left"></div>
+    <div class="hero-character character-right"></div>
+    
+    <div class="hero-content">
+      <div class="hero-kicker"><span>INDEPENDENT GAME DEVELOPER</span><b>BUILD 26.08</b></div>
+      <h1 class="hero-title" data-text="MATS ARC GAMING STUDIO">MATS ARC GAMING STUDIO</h1>
+      <p class="hero-subtitle">CRAFTING ADVENTURES, FORGING WORLDS, ENGAGING PLAYERS</p>
+
+      <div class="hero-status" aria-label="Studio status">
+        <span><i></i> INDIE STUDIO // ONLINE</span>
+        <span>EST. 2026</span>
+      </div>
+      
+      <div class="hero-actions">
+        <a href="#games" class="btn btn-primary">
+          <span class="btn-text">EXPLORE OUR UNIVERSE</span>
+          <span class="btn-glow"></span>
+        </a>
+        <a href="#games" class="btn btn-secondary">
+          <span class="btn-text">VIEW PORTFOLIO</span>
+        </a>
+      </div>
+    </div>
+    <a href="#games" class="scroll-cue" aria-label="Scroll to games"><span></span>SCROLL TO ENTER</a>
+  </header>
+
+  <div class="signal-strip" aria-label="Studio highlights">
+    <div class="signal-track">
+      <span>ORIGINAL WORLDS</span><i>◆</i><span>TACTILE COMBAT</span><i>◆</i><span>PLAYER-FIRST DESIGN</span><i>◆</i><span>CINEMATIC ADVENTURES</span><i>◆</i>
+      <span>ORIGINAL WORLDS</span><i>◆</i><span>TACTILE COMBAT</span><i>◆</i><span>PLAYER-FIRST DESIGN</span><i>◆</i><span>CINEMATIC ADVENTURES</span><i>◆</i>
+    </div>
+  </div>
+
+  <!-- Main Content Body -->
+  <main class="main-wrapper">
+
+    <!-- Section Title -->
+    <div class="section-header reveal" id="games">
+      <div class="header-line"></div>
+      <h2 class="section-title">GAMES PORTFOLIO</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <!-- Games Portfolio Grid -->
+    <div class="portfolio-grid">
+
+      <!-- Card 1 -->
+      <article class="game-card reveal" data-accent="cyan">
+        <div class="card-border-glow"></div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Void Runners" class="game-img">
+          <div class="card-overlay"></div>
+          <span class="game-badge">HOT RELEASE</span>
+        </div>
+        <div class="card-content">
+          <h3 class="game-name">VOID RUNNERS</h3>
+          <p class="game-genre">Cyberpunk Action / Racing</p>
+          <div class="card-actions">
+            <button class="btn-play" data-game="void">VIEW INTEL</button>
+            <div class="store-icons">
+              <span class="store-badge">App Store</span>
+              <span class="store-badge">Steam</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="game-card reveal" data-accent="violet">
+        <div class="card-border-glow"></div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Mythic Legends" class="game-img">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="game-name">MYTHIC LEGENDS</h3>
+          <p class="game-genre">Fantasy Action RPG</p>
+          <div class="card-actions">
+            <button class="btn-play" data-game="mythic">VIEW INTEL</button>
+            <div class="store-icons">
+              <span class="store-badge">Google Play</span>
+              <span class="store-badge">Steam</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="game-card reveal" data-accent="amber">
+        <div class="card-border-glow"></div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80" alt="ARC Rival" class="game-img">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="game-name">ARC RIVAL</h3>
+          <p class="game-genre">Sci-Fi Hero Shooter</p>
+          <div class="card-actions">
+            <button class="btn-play" data-game="rival">VIEW INTEL</button>
+            <div class="store-icons">
+              <span class="store-badge">Google Play</span>
+              <span class="store-badge">Steam</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="game-card reveal" data-accent="rose">
+        <div class="card-border-glow"></div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Chrono Knight" class="game-img">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="game-name">CHRONO KNIGHT</h3>
+          <p class="game-genre">Steampunk Adventure</p>
+          <div class="card-actions">
+            <button class="btn-play" data-game="chrono">VIEW INTEL</button>
+            <div class="store-icons">
+              <span class="store-badge">Google Play</span>
+              <span class="store-badge">Steam</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="about-section reveal" id="about">
+      <div class="about-copy">
+        <span class="eyebrow">// WHO WE ARE</span>
+        <h2>SMALL TEAM.<br><em>BIG UNIVERSES.</em></h2>
+        <p>MATS ARC is an independent game studio building high-energy worlds with memorable characters, tactile combat, and stories players carry beyond the screen.</p>
+        <a href="mailto:hello@matsarc.com" class="text-link">START A CONVERSATION <span>&rarr;</span></a>
+      </div>
+      <div class="studio-stats">
+        <div class="stat"><strong data-count="4">0</strong><span>WORLDS IN MOTION</span></div>
+        <div class="stat"><strong data-count="12">0</strong><span>CREATORS</span></div>
+        <div class="stat"><strong data-count="100">0</strong><span>% PLAYER-FOCUSED</span></div>
+      </div>
+    </section>
+
+    <section class="careers-banner reveal" id="careers">
+      <div><span class="eyebrow">// JOIN THE PARTY</span><h2>HELP US BUILD THE<br>NEXT GREAT ADVENTURE.</h2></div>
+      <a href="mailto:careers@matsarc.com" class="btn btn-primary"><span class="btn-text">VIEW OPEN ROLES</span><span class="btn-glow"></span></a>
+    </section>
+
+    <!-- Store Compliance & Privacy Section -->
+    <div class="compliance-section reveal" id="privacy">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2 class="section-title">STORE COMPLIANCE & LEGAL</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="compliance-grid">
+        <div class="compliance-card" id="support">
+          <h3>Developer Contact & Support</h3>
+          <p>Need help with any of our titles or account data deletion requests?</p>
+          <ul>
+            <li><strong>Official Contact:</strong> <a href="mailto:chuckystudio786@gmail.com">chuckystudio786@gmail.com</a></li>
+            <li><strong>Privacy & Data Requests:</strong> <a href="mailto:chuckystudio786@gmail.com?subject=MATS%20ARC%20Privacy%20Request">chuckystudio786@gmail.com</a></li>
+            <li><strong>Response Window:</strong> Within 24-48 business hours</li>
+          </ul>
+        </div>
+
+        <div class="compliance-card">
+          <h3>Privacy Policy</h3>
+          <p>Mats ARC Gaming Studio is committed to user privacy. Our games may collect device analytics and crash diagnostics to enhance stability and gameplay performance.</p>
+          <a href="privacy.html" class="policy-link">Read Full Privacy Policy &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#games">GAMES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#support">SUPPORT</a>
+        <a href="privacy.html">PRIVACY POLICY</a>
+        <a href="#careers">CAREERS</a>
+      </div>
+      <p class="copyright">&copy; 2026 Mats ARC Gaming Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">&#9650;</button>
+
+  <dialog class="game-modal" id="gameModal">
+    <button class="modal-close" aria-label="Close game details">×</button>
+    <div class="modal-visual">
+      <img src="" alt="">
+      <div class="modal-scan"></div>
+      <span class="modal-index">FILE // 01</span>
+    </div>
+    <div class="modal-copy">
+      <span class="eyebrow">// PROJECT INTELLIGENCE</span>
+      <h2></h2>
+      <p class="modal-genre"></p>
+      <p class="modal-description"></p>
+      <div class="modal-meta"><span>STATUS <b>IN DEVELOPMENT</b></span><span>ENGINE <b>UNITY</b></span><span>MODE <b>ONLINE</b></span></div>
+      <a href="mailto:hello@matsarc.com" class="btn btn-primary"><span class="btn-text">REQUEST ACCESS</span></a>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
