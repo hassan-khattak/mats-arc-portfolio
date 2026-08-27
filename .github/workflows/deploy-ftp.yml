@@ -1,0 +1,68 @@
+name: Deploy static site by SFTP
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+      - privacy.html
+      - style.css
+      - script.js
+      - legal.js
+      - favicon.svg
+      - .github/workflows/deploy-ftp.yml
+  workflow_dispatch:
+    inputs:
+      clean_remote_first:
+        description: Delete everything in FTP_SERVER_DIR before uploading (one-time WordPress replacement only)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-ftp-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Upload production files
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static deployment directory
+        shell: bash
+        run: |
+          mkdir -p deploy
+          cp index.html privacy.html style.css script.js legal.js favicon.svg deploy/
+
+      - name: Install SFTP deployment client
+        run: sudo apt-get update && sudo apt-get install --yes lftp
+
+      - name: Deploy to the website document root
+        shell: bash
+        env:
+          SFTP_SERVER: ${{ secrets.FTP_SERVER }}
+          SFTP_PORT: ${{ secrets.FTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SFTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+          CLEAN_REMOTE_FIRST: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_remote_first }}
+        run: |
+          delete_option=""
+          if [[ "$CLEAN_REMOTE_FIRST" == "true" ]]; then
+            delete_option="--delete"
+          fi
+
+          lftp \
+            --user "$SFTP_USERNAME,$SFTP_PASSWORD" \
+            --port "$SFTP_PORT" \
+            "sftp://$SFTP_SERVER" \
+            -e "set sftp:auto-confirm yes; mirror --reverse --verbose=1 $delete_option ./deploy/ $SFTP_SERVER_DIR; bye"
