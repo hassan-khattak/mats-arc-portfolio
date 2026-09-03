@@ -8,6 +8,7 @@ on:
       - index.html
       - privacy.html
       - support.html
+      - assets/images/**
       - style.css
       - script.js
       - legal.js
@@ -43,6 +44,8 @@ jobs:
         run: |
           mkdir -p deploy
           cp index.html privacy.html support.html style.css script.js legal.js favicon.svg deploy/
+          mkdir -p deploy/assets/images
+          cp assets/images/*.webp deploy/assets/images/
 
       - name: Install SFTP deployment client
         run: sudo apt-get update && sudo apt-get install --yes lftp

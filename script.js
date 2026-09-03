@@ -95,11 +95,89 @@ if (!reducedMotion && matchMedia('(pointer:fine)').matches) {
   });
 }
 
+const hero = document.querySelector('.hero-section');
+const heroBackdrop = hero.querySelector('.hero-backdrop');
+const heroImages = [...heroBackdrop.querySelectorAll('img')];
+const heroCaption = hero.querySelector('.scene-caption strong');
+const sceneButtons = [...hero.querySelectorAll('[data-scene]')];
+const sceneSelector = hero.querySelector('.hero-scenes');
+const heroScenes = {
+  prime: ['assets/images/mats-arc-hero.webp', 'ARC PRIME'],
+  void: ['assets/images/void-runners.webp', 'VOID RUNNERS'],
+  mythic: ['assets/images/mythic-legends.webp', 'MYTHIC LEGENDS'],
+  rival: ['assets/images/arc-rival.webp', 'ARC RIVAL'],
+  chrono: ['assets/images/chrono-knight.webp', 'CHRONO KNIGHT']
+};
+let activeScene = 0;
+let activeHeroLayer = 0;
+let sceneTimer;
+let sceneSwapTimer;
+let transitionId = 0;
+
+async function selectScene(index) {
+  if (index === activeScene && heroImages[activeHeroLayer].classList.contains('active')) return;
+  activeScene = index;
+  const button = sceneButtons[index];
+  const [image, label] = heroScenes[button.dataset.scene];
+  sceneButtons.forEach(item => {
+    const selected = item === button;
+    item.classList.toggle('active', selected);
+    item.setAttribute('aria-pressed', String(selected));
+  });
+  const currentTransition = ++transitionId;
+  const outgoing = heroImages[activeHeroLayer];
+  const nextLayer = activeHeroLayer === 0 ? 1 : 0;
+  const incoming = heroImages[nextLayer];
+  incoming.src = image;
+  try { await incoming.decode(); } catch {}
+  if (currentTransition !== transitionId) return;
+  clearTimeout(sceneSwapTimer);
+  heroCaption.textContent = label;
+  if (reducedMotion) {
+    outgoing.className = '';
+    incoming.className = 'active';
+    activeHeroLayer = nextLayer;
+    return;
+  }
+  heroBackdrop.classList.remove('changing');
+  void heroBackdrop.offsetWidth;
+  heroBackdrop.classList.add('changing');
+  outgoing.className = 'outgoing';
+  incoming.className = 'entering';
+  activeHeroLayer = nextLayer;
+  sceneSwapTimer = setTimeout(() => {
+    outgoing.className = '';
+    incoming.className = 'active';
+    heroBackdrop.classList.remove('changing');
+  }, 900);
+}
+
+function startSceneCycle() {
+  if (reducedMotion) return;
+  clearInterval(sceneTimer);
+  sceneTimer = setInterval(() => selectScene((activeScene + 1) % sceneButtons.length), 4000);
+}
+
+sceneButtons.forEach((button, index) => button.addEventListener('click', () => {
+  selectScene(index);
+  startSceneCycle();
+}));
+sceneSelector.addEventListener('mouseenter', () => clearInterval(sceneTimer));
+sceneSelector.addEventListener('mouseleave', startSceneCycle);
+sceneSelector.addEventListener('focusin', () => clearInterval(sceneTimer));
+sceneSelector.addEventListener('focusout', startSceneCycle);
+if (!reducedMotion && matchMedia('(pointer:fine)').matches) hero.addEventListener('pointermove', event => {
+  const x = (event.clientX / innerWidth - .5) * -10;
+  const y = (event.clientY / innerHeight - .5) * -7;
+  heroImages.forEach(image => image.style.translate = `${x}px ${y}px`);
+}, { passive:true });
+startSceneCycle();
+
 const gameData = {
-  void: { title:'VOID RUNNERS', genre:'Cyberpunk Action / Racing', image:'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85', description:'Burn through a neon megacity where every shortcut is a gamble. Build your ride, recruit a crew, and outrun the corporations hunting you.' },
-  mythic: { title:'MYTHIC LEGENDS', genre:'Fantasy Action RPG', image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85', description:'Awaken ancient powers and cross a fractured realm shaped by your choices. Every ruin hides a story—and every legend demands a price.' },
-  rival: { title:'ARC RIVAL', genre:'Sci-Fi Hero Shooter', image:'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=85', description:'Choose your fighter, master kinetic abilities, and reshape the arena in a fast team shooter designed around bold plays and sharper rivalries.' },
-  chrono: { title:'CHRONO KNIGHT', genre:'Steampunk Adventure', image:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85', description:'Bend time inside a clockwork empire. Solve impossible machinery, duel mechanical guardians, and rewrite the moment that ended the world.' }
+  void: { title:'VOID RUNNERS', genre:'Cyberpunk Action / Racing', image:'assets/images/void-runners.webp', description:'Burn through a neon megacity where every shortcut is a gamble. Build your ride, recruit a crew, and outrun the corporations hunting you.' },
+  mythic: { title:'MYTHIC LEGENDS', genre:'Fantasy Action RPG', image:'assets/images/mythic-legends.webp', description:'Awaken ancient powers and cross a fractured realm shaped by your choices. Every ruin hides a story—and every legend demands a price.' },
+  rival: { title:'ARC RIVAL', genre:'Sci-Fi Hero Shooter', image:'assets/images/arc-rival.webp', description:'Choose your fighter, master kinetic abilities, and reshape the arena in a fast team shooter designed around bold plays and sharper rivalries.' },
+  chrono: { title:'CHRONO KNIGHT', genre:'Steampunk Adventure', image:'assets/images/chrono-knight.webp', description:'Bend time inside a clockwork empire. Solve impossible machinery, duel mechanical guardians, and rewrite the moment that ended the world.' }
 };
 const modal = document.querySelector('#gameModal');
 document.querySelectorAll('[data-game]').forEach((button, index) => button.addEventListener('click', () => {

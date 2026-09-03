@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MATS ARC | Official Game Studio Portfolio</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/images/mats-arc-hero.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,16 +50,22 @@
 
   <!-- Hero Banner -->
   <header class="hero-section">
+    <div class="hero-backdrop" aria-hidden="true"><img class="active" src="assets/images/mats-arc-hero.webp" alt=""><img src="assets/images/mats-arc-hero.webp" alt=""></div>
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-orbit orbit-one" aria-hidden="true"></div>
     <div class="hero-orbit orbit-two" aria-hidden="true"></div>
     <div class="hero-character character-left"></div>
     <div class="hero-character character-right"></div>
+    <div class="hero-frame" aria-hidden="true"><span>01</span><span>MAT-ARC // PRIME</span></div>
+    <div class="hero-signal" aria-hidden="true">
+      <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
+      <span>WORLD SIGNAL<br><strong>STABLE</strong></span>
+    </div>
     
     <div class="hero-content">
       <div class="hero-kicker"><span>INDEPENDENT GAME DEVELOPER</span><b>BUILD 26.08</b></div>
-      <h1 class="hero-title" data-text="MATS ARC GAMING STUDIO">MATS ARC GAMING STUDIO</h1>
-      <p class="hero-subtitle">CRAFTING ADVENTURES, FORGING WORLDS, ENGAGING PLAYERS</p>
+      <h1 class="hero-title" data-text="MATS ARC"><span>MATS</span> <em>ARC</em><small>GAMING STUDIO</small></h1>
+      <p class="hero-subtitle"><span>CRAFTING ADVENTURES</span><i></i><span>FORGING WORLDS</span><i></i><span>ENGAGING PLAYERS</span></p>
 
       <div class="hero-status" aria-label="Studio status">
         <span><i></i> INDIE STUDIO // ONLINE</span>
@@ -74,6 +81,15 @@
           <span class="btn-text">VIEW PORTFOLIO</span>
         </a>
       </div>
+    </div>
+    <div class="hero-coordinates" aria-hidden="true"><span>SECTOR 26°08′</span><b></b><span>TRANSMISSION 001</span></div>
+    <div class="hero-scenes" aria-label="Explore featured MATS ARC worlds">
+      <span class="scene-caption"><small>NOW VIEWING</small><strong>ARC PRIME</strong></span>
+      <button class="active" type="button" data-scene="prime" aria-label="Show ARC Prime" aria-pressed="true"><img src="assets/images/mats-arc-hero.webp" alt=""></button>
+      <button type="button" data-scene="void" aria-label="Show Void Runners" aria-pressed="false"><img src="assets/images/void-runners.webp" alt=""></button>
+      <button type="button" data-scene="mythic" aria-label="Show Mythic Legends" aria-pressed="false"><img src="assets/images/mythic-legends.webp" alt=""></button>
+      <button type="button" data-scene="rival" aria-label="Show ARC Rival" aria-pressed="false"><img src="assets/images/arc-rival.webp" alt=""></button>
+      <button type="button" data-scene="chrono" aria-label="Show Chrono Knight" aria-pressed="false"><img src="assets/images/chrono-knight.webp" alt=""></button>
     </div>
     <a href="#games" class="scroll-cue" aria-label="Scroll to games"><span></span>SCROLL TO ENTER</a>
   </header>
@@ -102,7 +118,7 @@
       <article class="game-card reveal" data-accent="cyan">
         <div class="card-border-glow"></div>
         <div class="card-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Void Runners" class="game-img">
+          <img src="assets/images/void-runners.webp" alt="Masked Void Runners pilot racing an anti-gravity bike through a neon city" class="game-img" width="1536" height="1024">
           <div class="card-overlay"></div>
           <span class="game-badge">HOT RELEASE</span>
         </div>
@@ -123,7 +139,7 @@
       <article class="game-card reveal" data-accent="violet">
         <div class="card-border-glow"></div>
         <div class="card-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Mythic Legends" class="game-img">
+          <img src="assets/images/mythic-legends.webp" alt="Mythic Legends warrior overlooking a floating citadel and enchanted gateway" class="game-img" width="1536" height="1024" loading="lazy">
           <div class="card-overlay"></div>
         </div>
         <div class="card-content">
@@ -143,7 +159,7 @@
       <article class="game-card reveal" data-accent="amber">
         <div class="card-border-glow"></div>
         <div class="card-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80" alt="ARC Rival" class="game-img">
+          <img src="assets/images/arc-rival.webp" alt="Two ARC Rival combatants clashing with cyan and orange energy in orbit" class="game-img" width="1536" height="1024" loading="lazy">
           <div class="card-overlay"></div>
         </div>
         <div class="card-content">
@@ -163,7 +179,7 @@
       <article class="game-card reveal" data-accent="rose">
         <div class="card-border-glow"></div>
         <div class="card-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Chrono Knight" class="game-img">
+          <img src="assets/images/chrono-knight.webp" alt="Chrono Knight standing among monumental clockwork portals and fractured timelines" class="game-img" width="1536" height="1024" loading="lazy">
           <div class="card-overlay"></div>
         </div>
         <div class="card-content">
@@ -181,6 +197,16 @@
 
     </div>
 
+    <section class="world-nexus reveal" aria-label="The connected worlds of MATS ARC">
+      <img src="assets/images/world-nexus.webp" alt="Four connected MATS ARC universes spanning a neon city, floating fantasy kingdom, orbital arena, and clockwork cathedral" width="1983" height="793" loading="lazy">
+      <div class="nexus-copy">
+        <span class="eyebrow">// ONE STUDIO · INFINITE WORLDS</span>
+        <h2>EVERY WORLD<br>LEAVES A MARK.</h2>
+        <p>Different genres. One obsession: creating places worth getting lost in.</p>
+      </div>
+      <div class="nexus-worlds" aria-hidden="true"><span>NEON DISTRICT</span><span>MYTHIC REALM</span><span>ORBITAL FRONT</span><span>CHRONO EMPIRE</span></div>
+    </section>
+
     <section class="about-section reveal" id="about">
       <div class="about-copy">
         <span class="eyebrow">// WHO WE ARE</span>
@@ -188,16 +214,21 @@
         <p>MATS ARC is an independent game studio building high-energy worlds with memorable characters, tactile combat, and stories players carry beyond the screen.</p>
         <a href="mailto:hello@matsarc.com" class="text-link">START A CONVERSATION <span>&rarr;</span></a>
       </div>
-      <div class="studio-stats">
-        <div class="stat"><strong data-count="4">0</strong><span>WORLDS IN MOTION</span></div>
-        <div class="stat"><strong data-count="12">0</strong><span>CREATORS</span></div>
-        <div class="stat"><strong data-count="100">0</strong><span>% PLAYER-FOCUSED</span></div>
+      <div class="about-visual">
+        <img src="assets/images/studio-war-room.webp" alt="MATS ARC creators collaborating around a holographic game world" width="1792" height="896" loading="lazy">
+        <span class="visual-label">BEHIND THE WORLDS // 001</span>
+        <div class="studio-stats">
+          <div class="stat"><strong data-count="4">0</strong><span>WORLDS IN MOTION</span></div>
+          <div class="stat"><strong data-count="12">0</strong><span>CREATORS</span></div>
+          <div class="stat"><strong data-count="100">0</strong><span>% PLAYER-FOCUSED</span></div>
+        </div>
       </div>
     </section>
 
     <section class="careers-banner reveal" id="careers">
-      <div><span class="eyebrow">// JOIN THE PARTY</span><h2>HELP US BUILD THE<br>NEXT GREAT ADVENTURE.</h2></div>
+      <div><span class="eyebrow">// JOIN THE PARTY</span><h2>HELP US BUILD THE<br>NEXT GREAT ADVENTURE.</h2><p>Step through the portal. Bring your craft, your point of view, and the worlds only you can imagine.</p></div>
       <a href="mailto:careers@matsarc.com" class="btn btn-primary"><span class="btn-text">VIEW OPEN ROLES</span><span class="btn-glow"></span></a>
+      <span class="careers-index" aria-hidden="true">NEW WORLD // OPEN</span>
     </section>
 
     <!-- Store Compliance & Privacy Section -->
