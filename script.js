@@ -133,6 +133,7 @@ async function selectScene(index) {
   if (currentTransition !== transitionId) return;
   clearTimeout(sceneSwapTimer);
   heroCaption.textContent = label;
+  hero.dataset.activeScene = button.dataset.scene;
   if (reducedMotion) {
     outgoing.className = '';
     incoming.className = 'active';
