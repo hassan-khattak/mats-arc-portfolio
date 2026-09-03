@@ -8,7 +8,8 @@ A cinematic, responsive portfolio website for MATS ARC Gaming Studio. The site i
 - Cinematic hero section with HUD and glitch effects
 - Responsive game portfolio grid
 - Interactive 3D card tilt and lighting
-- Game-detail dialog overlays
+- Dedicated cinematic detail pages for every game
+- Original optimized key art and gameplay visuals
 - Scroll-triggered reveals and animated studio statistics
 - Mobile navigation
 - Reduced-motion accessibility support
@@ -46,9 +47,14 @@ portfolio/
 ├── index.html      # Portfolio content and page structure
 ├── privacy.html    # Privacy policy and data-deletion information
 ├── support.html    # Player support, troubleshooting, and contact information
+├── void-runners.html, mythic-legends.html, arc-rival.html, chrono-knight.html
+│                    # Individual game detail pages
 ├── style.css       # Complete visual design and responsive styles
+├── game.css        # Shared game-detail page design
 ├── script.js       # Homepage animation and interaction logic
 ├── legal.js        # Privacy-page background and scroll effects
+├── support.js      # Support game picker and email composer
+├── assets/images/  # Optimized original WebP artwork
 └── README.md       # Project documentation
 ```
 

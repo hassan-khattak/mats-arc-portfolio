@@ -38,13 +38,31 @@
       <div class="legal-meta"><span><strong>Developer:</strong> MATS ARC LLC</span><span><strong>Response target:</strong> 24–48 business hours</span></div>
     </header>
 
+    <section class="support-picker" aria-labelledby="choose-game-title">
+      <span class="eyebrow">// SELECT A WORLD</span>
+      <h2 id="choose-game-title">WHICH GAME NEEDS SUPPORT?</h2>
+      <div class="support-games">
+        <button type="button" data-support-game="Void Runners" aria-pressed="false"><img src="assets/images/void-runners.webp" alt="" width="1536" height="1024"><span>VOID RUNNERS</span></button>
+        <button type="button" data-support-game="Mythic Legends" aria-pressed="false"><img src="assets/images/mythic-legends.webp" alt="" width="1536" height="1024"><span>MYTHIC LEGENDS</span></button>
+        <button type="button" data-support-game="ARC Rival" aria-pressed="false"><img src="assets/images/arc-rival.webp" alt="" width="1536" height="1024"><span>ARC RIVAL</span></button>
+        <button type="button" data-support-game="Chrono Knight" aria-pressed="false"><img src="assets/images/chrono-knight.webp" alt="" width="1536" height="1024"><span>CHRONO KNIGHT</span></button>
+      </div>
+    </section>
+
     <section class="support-contact" aria-labelledby="contact-title">
       <div>
         <span class="eyebrow">// DIRECT CHANNEL</span>
         <h2 id="contact-title">CONTACT PLAYER SUPPORT</h2>
-        <p>Email our support team and include the details listed below. Please do not send passwords, full payment-card numbers, or other unnecessary sensitive information.</p>
+        <p>Build a support request with the relevant details. Submitting opens your email app with a prepared message; nothing is uploaded through this website.</p>
       </div>
-      <a class="btn btn-primary" href="mailto:support@matsarc.com?subject=MATS%20ARC%20Support%20Request"><span class="btn-text">EMAIL SUPPORT</span><span class="btn-glow"></span></a>
+      <form class="support-form" id="supportForm">
+        <input type="hidden" id="supportGame" value="General / Not listed">
+        <label>Issue type<select id="supportIssue"><option>Technical issue</option><option>Purchase or missing item</option><option>Save data or progress</option><option>Player safety or conduct</option><option>Privacy or data request</option><option>Other</option></select></label>
+        <label>Platform<select id="supportPlatform"><option>iPhone / iPad</option><option>Android</option><option>Steam / PC</option><option>Other</option></select></label>
+        <label class="support-details">What happened?<textarea id="supportDetails" rows="4" maxlength="1200" required placeholder="Describe the issue, expected result, and any error message."></textarea></label>
+        <button class="btn btn-primary" type="submit"><span class="btn-text">PREPARE SUPPORT EMAIL</span></button>
+        <p class="support-form-status" id="supportFormStatus" aria-live="polite">Selected game: General / Not listed</p>
+      </form>
     </section>
 
     <div class="support-grid" aria-label="Information to include with a support request">
@@ -77,6 +95,6 @@
   </main>
 
   <footer class="legal-footer"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true"> · </span>&copy; 2026 MATS ARC LLC. All rights reserved.</footer>
-  <script src="legal.js"></script>
+  <script src="legal.js"></script><script src="support.js"></script>
 </body>
 </html>

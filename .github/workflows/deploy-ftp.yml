@@ -8,6 +8,12 @@ on:
       - index.html
       - privacy.html
       - support.html
+      - support.js
+      - game.css
+      - void-runners.html
+      - mythic-legends.html
+      - arc-rival.html
+      - chrono-knight.html
       - assets/images/**
       - style.css
       - script.js
@@ -43,7 +49,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p deploy
-          cp index.html privacy.html support.html style.css script.js legal.js favicon.svg deploy/
+          cp index.html privacy.html support.html void-runners.html mythic-legends.html arc-rival.html chrono-knight.html style.css game.css script.js legal.js support.js favicon.svg deploy/
           mkdir -p deploy/assets/images
           cp assets/images/*.webp deploy/assets/images/
 

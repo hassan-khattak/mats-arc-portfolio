@@ -173,24 +173,10 @@ if (!reducedMotion && matchMedia('(pointer:fine)').matches) hero.addEventListene
   heroImages.forEach(image => image.style.translate = `${x}px ${y}px`);
 }, { passive:true });
 startSceneCycle();
-
-const gameData = {
-  void: { title:'VOID RUNNERS', genre:'Cyberpunk Action / Racing', image:'assets/images/void-runners.webp', description:'Burn through a neon megacity where every shortcut is a gamble. Build your ride, recruit a crew, and outrun the corporations hunting you.' },
-  mythic: { title:'MYTHIC LEGENDS', genre:'Fantasy Action RPG', image:'assets/images/mythic-legends.webp', description:'Awaken ancient powers and cross a fractured realm shaped by your choices. Every ruin hides a story—and every legend demands a price.' },
-  rival: { title:'ARC RIVAL', genre:'Sci-Fi Hero Shooter', image:'assets/images/arc-rival.webp', description:'Choose your fighter, master kinetic abilities, and reshape the arena in a fast team shooter designed around bold plays and sharper rivalries.' },
-  chrono: { title:'CHRONO KNIGHT', genre:'Steampunk Adventure', image:'assets/images/chrono-knight.webp', description:'Bend time inside a clockwork empire. Solve impossible machinery, duel mechanical guardians, and rewrite the moment that ended the world.' }
-};
-const modal = document.querySelector('#gameModal');
-document.querySelectorAll('[data-game]').forEach((button, index) => button.addEventListener('click', () => {
-  const game = gameData[button.dataset.game];
-  modal.querySelector('img').src = game.image; modal.querySelector('img').alt = game.title;
-  modal.querySelector('h2').textContent = game.title; modal.querySelector('.modal-genre').textContent = game.genre;
-  modal.querySelector('.modal-description').textContent = game.description;
-  modal.querySelector('.modal-index').textContent = `FILE // 0${index + 1}`;
-  modal.showModal();
-}));
-modal.querySelector('.modal-close').addEventListener('click', () => modal.close());
-modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) clearInterval(sceneTimer);
+  else startSceneCycle();
+});
 
 if (!reducedMotion) setInterval(() => {
   const title = document.querySelector('.hero-title'); title.classList.add('glitch');
