@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Official support for MATS ARC games, purchases, technical issues, and privacy requests.">
+  <title>Support | MATS ARC Gaming Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="legal-page support-page">
+  <canvas id="particle-canvas"></canvas>
+  <div class="ambient-glow wave-1"></div>
+  <div class="screen-noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <nav class="navbar legal-nav">
+    <a href="index.html" class="nav-logo" aria-label="MATS ARC home">
+      <div class="logo-shield">
+        <svg viewBox="0 0 100 100" class="shield-svg" aria-hidden="true">
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" class="shield-border"/>
+          <text x="50" y="62" text-anchor="middle" class="shield-text">ARC</text>
+        </svg>
+      </div>
+      <span class="logo-name">MATS <span>ARC</span></span>
+    </a>
+    <a href="index.html" class="legal-back">← RETURN TO STUDIO</a>
+  </nav>
+
+  <main class="legal-shell support-shell">
+    <header class="legal-hero">
+      <span class="eyebrow">// PLAYER SUPPORT</span>
+      <h1>SUPPORT<br>CENTER</h1>
+      <p>Get help with a MATS ARC game, report a technical problem, ask about a purchase, or submit a privacy request.</p>
+      <div class="legal-meta"><span><strong>Developer:</strong> MATS ARC LLC</span><span><strong>Response target:</strong> 24–48 business hours</span></div>
+    </header>
+
+    <section class="support-contact" aria-labelledby="contact-title">
+      <div>
+        <span class="eyebrow">// DIRECT CHANNEL</span>
+        <h2 id="contact-title">CONTACT PLAYER SUPPORT</h2>
+        <p>Email our support team and include the details listed below. Please do not send passwords, full payment-card numbers, or other unnecessary sensitive information.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:support@matsarc.com?subject=MATS%20ARC%20Support%20Request"><span class="btn-text">EMAIL SUPPORT</span><span class="btn-glow"></span></a>
+    </section>
+
+    <div class="support-grid" aria-label="Information to include with a support request">
+      <article><strong>01</strong><h2>GAME</h2><p>The MATS ARC game title and the app version shown in its settings or store listing.</p></article>
+      <article><strong>02</strong><h2>DEVICE</h2><p>Your device model, operating-system version, and whether you downloaded the game from Apple App Store, Google Play, or another store.</p></article>
+      <article><strong>03</strong><h2>ISSUE</h2><p>What happened, what you expected, steps that reproduce the problem, and any relevant error message.</p></article>
+      <article><strong>04</strong><h2>EVIDENCE</h2><p>Attach a screenshot or screen recording if useful. For purchases, include the store order ID—but never send payment-card details.</p></article>
+    </div>
+
+    <div class="policy-layout support-layout">
+      <aside class="policy-toc" aria-label="Support contents">
+        <span>CONTENTS</span>
+        <a href="#quick-fixes">Quick fixes</a><a href="#purchases">Purchases</a><a href="#save-data">Save data</a><a href="#privacy">Privacy requests</a><a href="#conduct">Player safety</a><a href="#contact">Contact details</a>
+      </aside>
+
+      <article class="policy-content">
+        <section id="quick-fixes"><h2>Quick Troubleshooting</h2><ol><li>Install the latest version of the game and your device operating system.</li><li>Close and reopen the game, then restart the device.</li><li>Check that you have a stable connection and enough free device storage.</li><li>Disable VPN or network-filtering software temporarily if an online feature cannot connect.</li><li>If the issue continues, contact us before reinstalling so you do not accidentally remove locally stored progress.</li></ol></section>
+
+        <section id="purchases"><h2>Purchases and Refunds</h2><p>Apple, Google, and other storefronts process payments and control refund decisions. First use the store’s restore-purchases option where available. If an item remains missing, email us with the game title, platform, approximate purchase date, item name, and store order ID. Do not send your full payment-card number.</p><p>Refund requests must normally be submitted directly to the storefront where the purchase was made.</p></section>
+
+        <section id="save-data"><h2>Progress and Save Data</h2><p>Some MATS ARC games may store progress only on your device. Clearing app data, resetting your device, or uninstalling the game may permanently remove local progress. Cloud backup or synchronization, when available, depends on the game, your platform account, and your device settings.</p></section>
+
+        <section id="privacy"><h2>Privacy and Data Requests</h2><p>For access, correction, consent, or deletion requests, email <a href="mailto:support@matsarc.com?subject=MATS%20ARC%20Privacy%20Request">support@matsarc.com</a> with the relevant game and platform. We may request limited information to verify and locate the applicable record.</p><p><a href="privacy.html">Read the MATS ARC Privacy Policy →</a></p></section>
+
+        <section id="conduct"><h2>Player Safety and Conduct</h2><p>To report abusive behavior, harmful content, cheating, or a security concern in a MATS ARC service, send the game title, player or session identifier if available, the approximate date and time, and supporting evidence. Do not publicly share another player’s personal information.</p></section>
+
+        <section id="contact"><h2>Contact Details</h2><p><strong>MATS ARC LLC</strong><br>Doing business as MATS ARC Gaming Studio<br>Email: <a href="mailto:support@matsarc.com">support@matsarc.com</a></p><p>We aim to acknowledge requests within 24–48 business hours. Complex investigations, storefront requests, and requests involving an external service provider may take longer.</p></section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="legal-footer"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true"> · </span>&copy; 2026 MATS ARC LLC. All rights reserved.</footer>
+  <script src="legal.js"></script>
+</body>
+</html>

@@ -13,6 +13,7 @@ A cinematic, responsive portfolio website for MATS ARC Gaming Studio. The site i
 - Mobile navigation
 - Reduced-motion accessibility support
 - Dedicated privacy-policy page
+- Dedicated player-support page
 - External privacy links for integrated game-service providers
 - Data-deletion and support contact links
 
@@ -44,6 +45,7 @@ You can also open `index.html` directly, but using a local server more closely m
 portfolio/
 ├── index.html      # Portfolio content and page structure
 ├── privacy.html    # Privacy policy and data-deletion information
+├── support.html    # Player support, troubleshooting, and contact information
 ├── style.css       # Complete visual design and responsive styles
 ├── script.js       # Homepage animation and interaction logic
 ├── legal.js        # Privacy-page background and scroll effects
@@ -59,7 +61,7 @@ Update the studio name, description, copyright notice, and email addresses in `i
 The current public contact is:
 
 ```text
-chuckystudio786@gmail.com
+support@matsarc.com
 ```
 
 ### Games
